@@ -13,7 +13,9 @@ public class SimpleEnemy : MonoBehaviour
     public float viewRadius = 6f;
     public float viewAngle = 180f;
     public float attackRange = 1.2f;
+    public int attackDamage = 10;
     public float searchTime = 3f;
+    public LayerMask obstacleLayer; // слой стен — назначить в инспекторе
 
     Rigidbody2D rb;
     float attackCooldown = 0f;
@@ -65,7 +67,7 @@ public class SimpleEnemy : MonoBehaviour
                 attackCooldown -= Time.deltaTime;
                 if (attackCooldown <= 0f)
                 {
-                    Debug.Log("Атака игрока!");
+                    player.GetComponent<PlayerHealth>()?.TakeDamage(attackDamage);
                     attackCooldown = 1f;
                 }
                 break;
@@ -119,6 +121,10 @@ public class SimpleEnemy : MonoBehaviour
         float angle = Vector2.Angle(transform.up, dir);
         if (angle > viewAngle / 2f) return false;
 
-        return true; // без Raycast — проверка препятствий добавляется позже при необходимости
+        // Raycast — проверяем, нет ли стены между врагом и игроком
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, dist, obstacleLayer);
+        if (hit.collider != null) return false; // луч упёрся в препятствие раньше игрока
+
+        return true;
     }
 }
