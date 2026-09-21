@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SimpleEnemy : MonoBehaviour
 {
-    enum State { Patrol, Chase, Attack, Search }
-    State state = State.Patrol;
+    enum State { Idle, Patrol, Chase, Attack, Search }
+    State state = State.Idle;
 
     public Transform player;
     public Transform[] patrolPoints;
@@ -15,11 +15,13 @@ public class SimpleEnemy : MonoBehaviour
     public float attackRange = 1.2f;
     public int attackDamage = 10;
     public float searchTime = 3f;
+    public float idleTime = 2f; // сколько секунд враг стоит при запуске, прежде чем начать патрулировать
     public LayerMask obstacleLayer; // слой стен — назначить в инспекторе
 
     Rigidbody2D rb;
     float attackCooldown = 0f;
     float searchClock = 0f;
+    float idleClock = 0f;
     Vector2 lastSeenPos;
     Vector2 desiredMoveTarget; // куда двигаться — считаем в Update, а реально двигаем в FixedUpdate
     bool shouldMove = false;
@@ -36,6 +38,17 @@ public class SimpleEnemy : MonoBehaviour
 
         switch (state)
         {
+            case State.Idle:
+                shouldMove = false;
+                idleClock += Time.deltaTime;
+                if (seePlayer)
+                {
+                    state = State.Chase; // если игрока увидели даже во время Idle — сразу гонимся
+                    break;
+                }
+                if (idleClock >= idleTime) state = State.Patrol;
+                break;
+
             case State.Patrol:
                 Patrol();
                 if (seePlayer) state = State.Chase;
