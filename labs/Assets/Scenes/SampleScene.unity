@@ -411,7 +411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 255504682}
   m_Layer: 0
-  m_Name: T_PatrolPoint_2
+  m_Name: N_PatrolPoint_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -442,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 406257213}
   m_Layer: 0
-  m_Name: T_PatrolPoint_4
+  m_Name: N_PatrolPoint_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,7 +473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 430142059}
   m_Layer: 0
-  m_Name: T_PatrolPoint_1
+  m_Name: N_PatrolPoint_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -725,7 +725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 691667624}
   m_Layer: 0
-  m_Name: N_PatrolPoint_1
+  m_Name: T_PatrolPoint_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -756,7 +756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 701338860}
   m_Layer: 0
-  m_Name: N_PatrolPoint_2
+  m_Name: T_PatrolPoint_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -771,7 +771,7 @@ Transform:
   m_GameObject: {fileID: 701338859}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.43, y: 3.5, z: 0}
+  m_LocalPosition: {x: 7.43, y: 2.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -890,10 +890,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleportEnemy
   player: {fileID: 70707703}
   patrolPoints:
-  - {fileID: 430142059}
-  - {fileID: 255504682}
-  - {fileID: 1569184939}
-  - {fileID: 406257213}
+  - {fileID: 691667624}
+  - {fileID: 701338860}
   speed: 2
   attackRange: 1.5
   attackDamage: 10
@@ -1052,7 +1050,7 @@ Transform:
   m_GameObject: {fileID: 919320700}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.03, y: -0.11, z: 0}
+  m_LocalPosition: {x: -7.8, y: 3.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1211,7 +1209,7 @@ Transform:
   m_GameObject: {fileID: 947836441}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.02, y: 3.71, z: 0}
+  m_LocalPosition: {x: -2.61, y: 0.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1231,8 +1229,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleEnemy
   player: {fileID: 70707703}
   patrolPoints:
-  - {fileID: 691667624}
-  - {fileID: 701338860}
+  - {fileID: 430142059}
+  - {fileID: 255504682}
+  - {fileID: 1569184939}
+  - {fileID: 406257213}
   speed: 3
   viewRadius: 10
   viewAngle: 180
@@ -1621,7 +1621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1569184939}
   m_Layer: 0
-  m_Name: T_PatrolPoint_3
+  m_Name: N_PatrolPoint_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
